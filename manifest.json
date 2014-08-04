@@ -1,0 +1,22 @@
+{
+  "name": "OctoAudit",
+  "version": "0.0.1",
+  "description": "Add TODO items from issue comments in GitHub and GitHub Enterprise",
+  "manifest_version": 2,
+  "content_scripts": [{
+    "matches": [
+      "https://github.com/*/*/pull/*", "https://github.com/*/*/issues/*",
+      "*://*.com/*/*/pull/*", "*://*.com/*/*/issues/*",
+      "*://*.net/*/*/pull/*", "*://*.net/*/*/issues/*",
+      "*://*.org/*/*/pull/*", "*://*.org/*/*/issues/*",
+      "*://*.fr/*/*/pull/*", "*://*.fr/*/*/issues/*",
+      "*://*/*/*/pull/*", "*://*/*/*/commit/*"
+    ],
+    "run_at": "document_end",
+    "css": ["data/css/octoaudit.css"],
+    "js": [
+      "data/js/vendor/jquery-2.1.1.min.js",
+      "data/js/octoaudit.js"
+    ]
+  }]
+}
