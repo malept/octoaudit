@@ -1,0 +1,14 @@
+{
+  "name": "octoaudit",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bowercopy": "^1.1.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-crx": "^0.3.3",
+    "grunt-sass": "^0.14.0",
+    "load-grunt-tasks": "^0.6.0"
+  }
+}
