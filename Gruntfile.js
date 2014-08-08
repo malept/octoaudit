@@ -8,6 +8,7 @@ module.exports = function (grunt) {
   // Configurable paths
   var config = {
     app: 'data',
+    build_tools: 'build_tools',
     dist: 'dist'
   };
 
@@ -36,8 +37,14 @@ module.exports = function (grunt) {
           '<%= config.app %>/js/vendor/*.js'
         ]
       },
+      build_tools: [
+        '<%= config.build_tools %>'
+      ],
       crx: {
         src: ['<%= config.dist %>/crx/*.crx']
+      },
+      xpi: {
+        src: ['<%= config.dist %>/xpi/*.xpi']
       }
     },
     // Compiles CoffeeScript to JavaScript
@@ -58,9 +65,27 @@ module.exports = function (grunt) {
     crx: {
       octoaudit: {
         src: "<%= config.app %>/",
-        exclude: ['**/.gitkeep'],
+        exclude: ['**/.gitkeep', '**/mozilla-addon*'],
         dest: "<%= config.dist %>/crx/",
         privateKey: "~/.ssh/chrome-apps.pem"
+      }
+    },
+    "mozilla-addon-sdk": {
+      '1_17': {
+        options: {
+          revision: "1.17",
+          dest_dir: "<%= config.build_tools %>/"
+        }
+      }
+    },
+    "mozilla-cfx-xpi": {
+      xpi: {
+        options: {
+          "arguments": "--strip-sdk", // builds smaller xpis
+          dist_dir: "<%= config.dist %>/xpi",
+          extension_dir: ".",
+          "mozilla-addon-sdk": "1_17"
+        }
       }
     },
     sass: {
@@ -91,10 +116,14 @@ module.exports = function (grunt) {
     }
   });
   grunt.registerTask('default', [
-    'clean',
+    'clean:build',
+    'clean:crx',
+    'clean:xpi',
     'sass:build',
     'coffee:build',
     'bowercopy',
+    'mozilla-addon-sdk',
+    'mozilla-cfx-xpi',
     'crx'
   ]);
 };

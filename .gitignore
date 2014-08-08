@@ -1,5 +1,6 @@
 .sass-cache
 bower_components
+build_tools
 dist
 node_modules
 *.js
