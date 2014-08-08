@@ -10,7 +10,7 @@
       "*://*.net/*/*/pull/*", "*://*.net/*/*/issues/*",
       "*://*.org/*/*/pull/*", "*://*.org/*/*/issues/*",
       "*://*.fr/*/*/pull/*", "*://*.fr/*/*/issues/*",
-      "*://*/*/*/pull/*", "*://*/*/*/commit/*"
+      "*://*/*/*/pull/*", "*://*/*/*/issues/*"
     ],
     "run_at": "document_end",
     "css": ["css/octoaudit.css"],
