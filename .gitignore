@@ -3,6 +3,7 @@ bower_components
 build_tools
 dist
 node_modules
-*.js
 *.css
+*.js
 *.map
+*.pem
