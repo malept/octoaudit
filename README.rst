@@ -2,8 +2,8 @@
 OctoAudit
 =========
 
-OctoAudit is a browser extension that allows you to add TODO items from an
-issue/pull request's comments into its summary.
+OctoAudit is a browser extension that allows you to add TODO items from a
+GitHub issue/pull request's comments into its summary.
 
 Supported Browsers
 ------------------
