@@ -20,11 +20,14 @@ module.exports = (grunt) ->
   # Configurable paths
   config =
     app: 'data'
+    build: 'build'
     build_tools: 'build_tools'
     dist: 'dist'
 
   grunt.initConfig
     config: config
+    pkg: grunt.file.readJSON('package.json')
+
     bowercopy:
       options:
         clean: true
@@ -41,6 +44,7 @@ module.exports = (grunt) ->
           '<%= config.app %>/css/*.css'
           '<%= config.app %>/js/*.js'
           '<%= config.app %>/js/vendor/*.js'
+          '<%= config.build %>'
         ]
       build_tools: [
         '<%= config.build_tools %>'
@@ -61,11 +65,43 @@ module.exports = (grunt) ->
         ]
         options:
           sourceMap: true
+    copy:
+      octoaudit:
+        files: [
+          {
+            cwd: '<%= config.app %>'
+            expand: true
+            src: [
+              'css/**'
+              'js/**'
+            ]
+            dest: '<%= config.build %>/octoaudit'
+          }
+        ]
+      octoaudit_enterprise:
+        files: [
+          {
+            cwd: '<%= config.app %>'
+            expand: true
+            src: [
+              'css/**'
+              'js/**'
+            ]
+            dest: '<%= config.build %>/octoaudit_enterprise'
+          }
+        ]
     crx:
       octoaudit:
-        src: "<%= config.app %>/"
+        src: "<%= config.build %>/octoaudit"
         exclude: ['**/.gitkeep', '**/mozilla-addon*']
         dest: "<%= config.dist %>/crx/"
+        filename: "octoaudit-<%= pkg.version %>.crx"
+        privateKey: "~/.ssh/chrome-apps.pem"
+      octoaudit_enterprise:
+        src: "<%= config.build %>/octoaudit_enterprise"
+        exclude: ['**/.gitkeep', '**/mozilla-addon*']
+        dest: "<%= config.dist %>/crx/"
+        filename: "octoaudit_enterprise-<%= pkg.version %>.crx"
         privateKey: "~/.ssh/chrome-apps.pem"
     "mozilla-addon-sdk":
       '1_17':
@@ -86,6 +122,24 @@ module.exports = (grunt) ->
             '<%= config.app %>/css/octoaudit.scss'
         options:
           sourceMap: true
+    template:
+      octoaudit:
+        files:
+          '<%= config.build %>/octoaudit/manifest.json':
+            ['<%= config.app %>/manifest.json.tmpl']
+        options:
+          data:
+            name: 'OctoAudit'
+            url_matches: '"https://github.com/*/*/pull/*",
+                          "https://github.com/*/*/issues/*"'
+      octoaudit_enterprise:
+        files:
+          '<%= config.build %>/octoaudit_enterprise/manifest.json':
+            ['<%= config.app %>/manifest.json.tmpl']
+        options:
+          data:
+            name: 'OctoAudit Enterprise'
+            url_matches: '"*://*/*/*/pull/*", "*://*/*/*/issues/*"'
     watch:
       coffee:
         files: ['<%= config.app %>/js/{,*/}*.{coffee,litcoffee,coffee.md}']
@@ -104,6 +158,8 @@ module.exports = (grunt) ->
     'sass:build'
     'coffee:build'
     'bowercopy'
+    'copy'
+    'template'
     'mozilla-addon-sdk'
     'mozilla-cfx-xpi'
     'crx'

@@ -44,8 +44,8 @@ Instructions
 
     user@host:octoaudit$ grunt
 
-The Firefox extension will be located at ``dist/xpi``. The Chrome extension
-will be located at ``dist/crx``.
+The Firefox extension will be located at ``dist/xpi``. The Chrome extensions
+(one for GitHub, one for GitHub Enterprise) will be located at ``dist/crx``.
 
 License
 -------
