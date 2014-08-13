@@ -38,7 +38,14 @@ Instructions
     user@host:~$ cd octoaudit
     user@host:octoaudit$ npm install
 
-3. Build the extensions:
+3. Create a private key for the Chrome extensions:
+
+.. code-block:: shell-session
+
+    user@host:octoaudit$ node_modules/.bin/crx keygen .
+    user@host:octoaudit$ mv key.pem ~/.ssh/chrome-apps.pem
+
+4. Build the extensions:
 
 .. code-block:: shell-session
 

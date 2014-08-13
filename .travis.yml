@@ -2,9 +2,9 @@ language: node_js
 node_js:
 - '0.10'
 install:
-- npm install -g crx grunt-cli
+- npm install -g grunt-cli
 - npm install
 before_script:
-- crx keygen .
+- node_modules/.bin/crx keygen .
 - mv key.pem ~/.ssh/chrome-apps.pem
 script: grunt
