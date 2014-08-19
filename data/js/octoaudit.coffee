@@ -27,7 +27,10 @@ $ ->
           item_text = $comment.find('.comment-body').text()
                               .trim().replace(/\s+/gm, ' ')
           desc_txt += "\n* [ ] #{item_text} *([ref](##{$comment.attr('id')}))*"
-          $desc.find('.js-comment-edit-button').hover().click()
+          click_evt = document.createEvent("MouseEvents")
+          click_evt.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0,
+                                   false, false, false, false, 0, null)
+          $desc.find('.js-comment-edit-button').get(0).dispatchEvent(click_evt)
           $desc_textarea.text(desc_txt)
 
     $desc = $('.timeline-comment:first')
