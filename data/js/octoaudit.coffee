@@ -21,9 +21,6 @@ $ ->
         .click (event) ->
           $button = $(event.target)
           $comment = $button.closest('.comment')
-          $desc = $('.timeline-comment:first')
-          $desc_textarea = $desc.find('textarea')
-          return if $desc_textarea.length == 0
           desc_txt = $desc_textarea.text()
           unless /^## TODO$/m.test(desc_txt)
             desc_txt += '\n## TODO'
@@ -33,9 +30,9 @@ $ ->
           $desc.find('.js-comment-edit-button').hover().click()
           $desc_textarea.text(desc_txt)
 
-    logged_in_user = $('#user-links .name').attr('href')
-    author = $('.pull.request .author').attr('href')
-    return unless logged_in_user == author
+    $desc = $('.timeline-comment:first')
+    $desc_textarea = $desc.find('textarea')
+    return if $desc_textarea.length == 0
 
     $('.timeline-comment:not(:first):not(:last) .timeline-comment-header-text')
       .before(create_add_issue_button())
