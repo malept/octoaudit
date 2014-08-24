@@ -132,6 +132,7 @@ module.exports = (grunt) ->
             name: 'OctoAudit'
             url_matches: '"https://github.com/*/*/pull/*",
                           "https://github.com/*/*/issues/*"'
+            target_app: 'GitHub'
             version: '<%= pkg.version %>'
       octoaudit_enterprise:
         files:
@@ -141,6 +142,7 @@ module.exports = (grunt) ->
           data:
             name: 'OctoAudit Enterprise'
             url_matches: '"*://*/*/*/pull/*", "*://*/*/*/issues/*"'
+            target_app: 'GitHub Enterprise'
             version: '<%= pkg.version %>'
     watch:
       coffee:
