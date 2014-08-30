@@ -28,15 +28,6 @@ module.exports = (grunt) ->
     config: config
     pkg: grunt.file.readJSON('package.json')
 
-    bowercopy:
-      options:
-        clean: true
-      libs:
-        files:
-          'jquery.min.js': 'jquery/dist/jquery.min.js'
-          'jquery.min.map': 'jquery/dist/jquery.min.map'
-        options:
-          destPrefix: '<%= config.app %>/js/vendor'
     clean:
       build:
         src: [
@@ -115,6 +106,12 @@ module.exports = (grunt) ->
           dist_dir: "<%= config.dist %>/xpi"
           extension_dir: "."
           "mozilla-addon-sdk": "1_17"
+    npmcopy:
+      libs:
+        files:
+          'jquery.min.js': 'jquery/dist/cdn/jquery-<%= pkg.devDependencies.jquery.slice(1) %>.min.js'
+        options:
+          destPrefix: '<%= config.app %>/js/vendor'
     sass:
       build:
         files:
@@ -161,7 +158,7 @@ module.exports = (grunt) ->
     'clean:xpi'
     'sass:build'
     'coffee:build'
-    'bowercopy'
+    'npmcopy'
     'copy'
     'template'
     'mozilla-addon-sdk'
