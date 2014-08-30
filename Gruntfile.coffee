@@ -81,6 +81,34 @@ module.exports = (grunt) ->
             dest: '<%= config.build %>/octoaudit_enterprise'
           }
         ]
+      xpi:
+        files: [
+          {
+            cwd: '<%= config.app %>/js'
+            expand: true
+            src: 'mozilla-addon.js'
+            dest: '<%= config.build %>/firefox/lib'
+          }
+          {
+            cwd: '<%= config.app %>'
+            expand: true
+            src: [
+              'css/**'
+              'js/**'
+              '!js/mozilla-addon*'
+            ]
+            dest: '<%= config.build %>/firefox/data'
+          }
+          {
+            src: 'package.json'
+            dest: '<%= config.build %>/firefox/'
+          }
+        ]
+        options:
+          process: (content, srcpath) ->
+            if srcpath == 'data/js/mozilla-addon.js'
+              content = content.replace('# sourceMappingURL=', '')
+            content
     crx:
       octoaudit:
         src: "<%= config.build %>/octoaudit"
@@ -104,7 +132,7 @@ module.exports = (grunt) ->
         options:
           "arguments": "--strip-sdk" # builds smaller xpis
           dist_dir: "<%= config.dist %>/xpi"
-          extension_dir: "."
+          extension_dir: "<%= config.build %>/firefox"
           "mozilla-addon-sdk": "1_17"
     npmcopy:
       libs:

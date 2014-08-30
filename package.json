@@ -7,8 +7,6 @@
   "author": "Mark Lee",
   "homepage": "https://github.com/malept/octoaudit",
   "repository": "https://github.com/malept/octoaudit.git",
-  "data": "data",
-  "lib": "data/js",
   "main": "mozilla-addon",
   "permissions": {
     "private-browsing": true
