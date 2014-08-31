@@ -19,7 +19,8 @@ $ ->
         .text('add as task')
         .addClass('add-to-octoreviewer')
         .click (event) ->
-          $button = $(event.target)
+          button = event.target
+          $button = $(button)
           $comment = $button.closest('.comment')
           desc_txt = $desc_textarea.text()
           unless /^## TODO$/m.test(desc_txt)
@@ -27,9 +28,9 @@ $ ->
           item_text = $comment.find('.comment-body').text()
                               .trim().replace(/\s+/gm, ' ')
           desc_txt += "\n* [ ] #{item_text} *([ref](##{$comment.attr('id')}))*"
-          click_evt = document.createEvent("MouseEvents")
-          view = if unsafeWindow? then unsafeWindow else window
-          click_evt.initMouseEvent('click', true, true, view, 0, 0, 0, 0, 0,
+          doc = button.ownerDocument
+          click_evt = doc.createEvent("MouseEvents")
+          click_evt.initMouseEvent('click', true, true, doc.defaultView, 0, 0, 0, 0, 0,
                                    false, false, false, false, 0, null)
           $desc.find('.js-comment-edit-button').get(0).dispatchEvent(click_evt)
           $desc_textarea.text(desc_txt)
