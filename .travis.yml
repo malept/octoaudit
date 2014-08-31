@@ -4,7 +4,7 @@ node_js:
 install:
 - npm install -g grunt-cli
 - npm install
-- sudo build_tools/install-amo-validator.sh
+- build_tools/install-amo-validator.sh
 - (mkdir build_tools/spidermonkey && cd build_tools/spidermonkey && wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/jsshell-linux-x86_64.zip && unzip jsshell-linux-x86_64.zip)
 before_script:
 - node_modules/.bin/crx keygen .
@@ -12,3 +12,5 @@ before_script:
 script:
 - grunt
 - build_tools/validate-xpi.sh
+env:
+- INSTALL_VIRTUALENV=1

@@ -2,6 +2,7 @@
 build
 /build_tools/addon-sdk*
 /build_tools/amo-validator
+/build_tools/amov_venv
 /build_tools/spidermonkey
 /build_tools/virtualenv*
 dist
