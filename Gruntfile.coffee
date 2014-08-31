@@ -137,7 +137,8 @@ module.exports = (grunt) ->
     npmcopy:
       libs:
         files:
-          'jquery.min.js': 'jquery/dist/cdn/jquery-<%= pkg.devDependencies.jquery.slice(1) %>.min.js'
+          'jquery.min.js':
+            'jquery/dist/cdn/jquery-<%= pkg.devDependencies.jquery.slice(1) %>.min.js'
         options:
           destPrefix: '<%= config.app %>/js/vendor'
     sass:

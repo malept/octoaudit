@@ -30,8 +30,8 @@ $ ->
           desc_txt += "\n* [ ] #{item_text} *([ref](##{$comment.attr('id')}))*"
           doc = button.ownerDocument
           click_evt = doc.createEvent("MouseEvents")
-          click_evt.initMouseEvent('click', true, true, doc.defaultView, 0, 0, 0, 0, 0,
-                                   false, false, false, false, 0, null)
+          click_evt.initMouseEvent('click', true, true, doc.defaultView, 0, 0,
+                                   0, 0, 0, false, false, false, false, 0, null)
           $desc.find('.js-comment-edit-button').get(0).dispatchEvent(click_evt)
           $desc_textarea.text(desc_txt)
 
