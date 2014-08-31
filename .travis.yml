@@ -4,7 +4,7 @@ node_js:
 install:
 - npm install -g grunt-cli
 - npm install
-- build_tools/install-amo-validator.sh
+- sudo build_tools/install-amo-validator.sh
 - (mkdir build_tools/spidermonkey && cd build_tools/spidermonkey && wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/jsshell-linux-x86_64.zip && unzip jsshell-linux-x86_64.zip && ln -s `pwd`/js ../amov_venv/bin/)
 before_script:
 - node_modules/.bin/crx keygen .

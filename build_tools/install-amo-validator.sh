@@ -1,11 +1,7 @@
 #!/bin/bash
 
-VENV_DIR="$(basename $0)/amov_venv"
+BASE_DIR="$(basename $0)"
 
-# Assume that virtualenv is installed.
-
-virtualenv "$VENV_DIR"
-source "$VENV_DIR"/bin/activate
-
+cd "$BASE_DIR"
 git clone https://github.com/mozilla/amo-validator.git
 pip install amo-validator/requirements.txt
