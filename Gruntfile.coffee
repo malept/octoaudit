@@ -56,6 +56,16 @@ module.exports = (grunt) ->
         ]
         options:
           sourceMap: true
+    coffeelint:
+      app:
+        files:
+          src: ['<%= config.app %>/js/*.coffee']
+      grunt:
+        files:
+          src: 'Gruntfile.coffee'
+        options:
+          max_line_length:
+            value: 100
     copy:
       octoaudit:
         files: [
@@ -185,6 +195,7 @@ module.exports = (grunt) ->
     'clean:build'
     'clean:crx'
     'clean:xpi'
+    'coffeelint'
     'sass:build'
     'coffee:build'
     'npmcopy'
