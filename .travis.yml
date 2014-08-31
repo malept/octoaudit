@@ -4,7 +4,12 @@ node_js:
 install:
 - npm install -g grunt-cli
 - npm install
+- sudo apt-get install spidermonkey-bin
+- sudo update-alternatives --set js /usr/bin/smjs
+- build_tools/install-amo-validator.sh
 before_script:
 - node_modules/.bin/crx keygen .
 - mv key.pem ~/.ssh/chrome-apps.pem
-script: grunt
+script:
+- grunt
+- build_tools/validate-xpi.sh

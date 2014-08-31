@@ -1,6 +1,8 @@
 .sass-cache
 build
-build_tools
+/build_tools/addon-sdk*
+/build_tools/amo-validator
+/build_tools/virtualenv*
 dist
 node_modules
 *.css
