@@ -1,7 +1,7 @@
 {
   "name": "octoaudit",
   "title": "OctoAudit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Add TODO items from issue comments in GitHub and GitHub Enterprise",
   "id": "jid1-r97O2kLAY6EIIw",
   "author": "Mark Lee",
