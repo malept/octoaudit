@@ -42,6 +42,8 @@ module.exports = (grunt) ->
       ]
       crx:
         src: ['<%= config.dist %>/crx/*.crx']
+      images:
+        src: ['<%= config.app %>/img/*.png']
       xpi:
         src: ['<%= config.dist %>/xpi/*.xpi']
     # Compiles CoffeeScript to JavaScript
@@ -74,6 +76,7 @@ module.exports = (grunt) ->
             expand: true
             src: [
               'css/**'
+              'img/octoaudit-*.png'
               'js/**'
             ]
             dest: '<%= config.build %>/octoaudit'
@@ -86,6 +89,7 @@ module.exports = (grunt) ->
             expand: true
             src: [
               'css/**'
+              'img/octoaudit-*.png'
               'js/**'
             ]
             dest: '<%= config.build %>/octoaudit_enterprise'
@@ -111,6 +115,15 @@ module.exports = (grunt) ->
           }
           {
             src: 'package.json'
+            dest: '<%= config.build %>/firefox/'
+          }
+          {
+            cwd: '<%= config.app %>/img'
+            expand: true
+            src: [
+              'octoaudit-48.png'
+              'octoaudit-64.png'
+            ]
             dest: '<%= config.build %>/firefox/'
           }
         ]
@@ -158,6 +171,13 @@ module.exports = (grunt) ->
             '<%= config.app %>/css/octoaudit.scss'
         options:
           sourceMap: true
+    rasterize:
+      icons:
+        files: [{
+          src: '<%= config.app %>/img/octoaudit.svg'
+        }]
+        options:
+          widths: [16, 48, 64, 128, 256]
     template:
       octoaudit:
         files:
@@ -199,6 +219,7 @@ module.exports = (grunt) ->
     'sass:build'
     'coffee:build'
     'npmcopy'
+    'rasterize'
     'copy'
     'template'
     'mozilla-addon-sdk'

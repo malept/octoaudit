@@ -8,6 +8,8 @@
   "homepage": "https://github.com/malept/octoaudit",
   "repository": "https://github.com/malept/octoaudit.git",
   "main": "mozilla-addon",
+  "icon": "octoaudit-48.png",
+  "icon64": "octoaudit-64.png",
   "permissions": {
     "private-browsing": true
   },
@@ -25,6 +27,7 @@
     "grunt-crx": "^0.3.3",
     "grunt-mozilla-addon-sdk": "^0.3.2",
     "grunt-npmcopy": "^0.1.0",
+    "grunt-phantom-svg2png": "^1.0.2",
     "grunt-sass": "^0.14.0",
     "grunt-template": "^0.2.3",
     "jquery": "^2.1.1",
