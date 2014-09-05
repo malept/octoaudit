@@ -2,6 +2,8 @@
 OctoAudit
 =========
 
+.. image:: https://cloud.githubusercontent.com/assets/11417/4160143/1f08edcc-34b3-11e4-8aec-c997ac5cd5cd.png
+
 OctoAudit is a browser extension that allows you to add TODO items from a
 GitHub issue/pull request's comments into its summary.
 
@@ -59,4 +61,9 @@ License
 
 OctoAudit is licensed under the `GNU GPL version 3.0 (or later)`_.
 
+The logo is licensed under the `GNU GPL version 2.0`_ (due to the fact that it
+uses ``evolution-tasks.svg`` from gnome-colors_).
+
 .. _GNU GPL version 3.0 (or later): https://gnu.org/licenses/gpl-3.0.txt
+.. _GNU GPL version 2.0: https://gnu.org/licenses/gpl-2.0.txt
+.. _gnome-colors: https://code.google.com/p/gnome-colors/
