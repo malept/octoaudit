@@ -118,12 +118,9 @@ module.exports = (grunt) ->
             dest: '<%= config.build %>/firefox/'
           }
           {
-            cwd: '<%= config.app %>/img'
             expand: true
-            src: [
-              'octoaudit-48.png'
-              'octoaudit-64.png'
-            ]
+            src: ['<%= config.app %>/img/octoaudit-{48,64}.png']
+            flatten: true
             dest: '<%= config.build %>/firefox/'
           }
         ]
@@ -132,6 +129,7 @@ module.exports = (grunt) ->
             if srcpath == 'data/js/mozilla-addon.js'
               content = content.replace('# sourceMappingURL=', '')
             content
+          noProcess: ['<%= config.app %>/img/octoaudit-{48,64}.png']
     crx:
       octoaudit:
         src: "<%= config.build %>/octoaudit"
