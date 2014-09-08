@@ -7,11 +7,49 @@ OctoAudit
 OctoAudit is a browser extension that allows you to add TODO items from a
 GitHub issue/pull request's comments into its summary.
 
+I'm a fan of `Review Board`_ and was disappointed that GitHub didn't have the
+equivalent of code review issue tracking, so I decided to make a simple
+version of it.
+
+.. _Review Board: https://www.reviewboard.org/
+
 Supported Browsers
 ------------------
 
 * Firefox
 * Chrome/Chromium
+
+Installation
+------------
+
+There are two methods of installation:
+
+1. Install from your browser's extension website:
+
+   * Firefox_
+   * Chrome_ (currently only the GitHub extension has been published, not the
+     GitHub Enterprise one)
+2. `Build from source`_
+
+.. _Firefox: https://addons.mozilla.org/en-US/firefox/addon/octoaudit
+.. _Chrome: https://chrome.google.com/webstore/detail/octoaudit/mhjlfnkgphdkfkejplmjlofdhgpeenfg
+.. _Build from source: #building-the-extensions
+
+Usage
+-----
+
+1. Go to an issue or pull request where you can edit the summary.
+2. To add one of the comments to the summary, click the "add as task" in the
+   top right part of the comment box. It will switch the summary text into edit
+   mode, add a TODO header if one does not exist, then append a checklist item
+   with the text of the comment in it.
+
+.. figure:: https://addons.cdn.mozilla.net/user-media/previews/full/142/142712.png?modified=1409890908
+   :alt: [Screenshot]
+
+   The screenshot shows the "add as task" button (depressed), and the newly
+   created TODO header plus checklist item generated from the comment plaintext
+   (not its source markdown).
 
 Building the extensions
 -----------------------
