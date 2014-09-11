@@ -39,5 +39,5 @@ $ ->
     $desc_textarea = $desc.find('textarea')
     return if $desc_textarea.length == 0
 
-    $('.timeline-comment:not(:first):not(:last) .timeline-comment-header-text')
+    $('.timeline-comment.comment:not(:first) .timeline-comment-header-text')
       .before(create_add_issue_button())
