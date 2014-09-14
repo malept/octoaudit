@@ -10,6 +10,11 @@ Issues include bugs, feedback, and feature requests. Before you file a new
 issue, please make sure that your issue has not already been filed by someone
 else.
 
+In addition to the GitHub issues UI, a `kanban board`_ is available to
+provide a way to show the relative priority and status of open issues.
+
+.. _kanban board: https://huboard.com/malept/octoaudit
+
 When filing a bug, please include the following information:
 
 * Operating system. If on Linux, please also include the distribution name and
