@@ -13,6 +13,9 @@ version of it.
 
 .. _Review Board: https://www.reviewboard.org/
 
+.. image:: https://travis-ci.org/malept/octoaudit.svg?branch=master
+   :target: https://travis-ci.org/malept/octoaudit
+
 Supported Browsers
 ------------------
 
