@@ -31,14 +31,8 @@ Pull Requests
 When making changes to CoffeeScript files, please make sure that it has a
 consistent style to the code surrounding it. When you submit your pull request,
 `Hound CI`_ will make comments about its conformity to the code style
-guide. [#]_
+guide.
 
 Use of the OctoAudit extension for these PRs is strongly encouraged.
 
-.. [#] At the time of writing this section, Hound CI does not have `support for
-       custom CoffeeLint configuration`_, so I will reply as necessary to any
-       Hound CI comment that is against the established code style.
-
 .. _Hound CI: https://houndci.com/
-.. _support for custom CoffeeLint configuration:
-   https://github.com/thoughtbot/hound/pull/386

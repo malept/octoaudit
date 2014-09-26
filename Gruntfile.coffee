@@ -59,15 +59,14 @@ module.exports = (grunt) ->
         options:
           sourceMap: true
     coffeelint:
+      options:
+        configFile: '.coffeelint.json'
       app:
         files:
           src: ['<%= config.app %>/js/*.coffee']
       grunt:
         files:
           src: 'Gruntfile.coffee'
-        options:
-          max_line_length:
-            value: 100
     copy:
       octoaudit:
         files: [
@@ -155,6 +154,7 @@ module.exports = (grunt) ->
           dist_dir: "<%= config.dist %>/xpi"
           extension_dir: "<%= config.build %>/firefox"
           "mozilla-addon-sdk": "1_17"
+    # coffeelint: disable=max_line_length
     npmcopy:
       libs:
         files:
@@ -162,6 +162,7 @@ module.exports = (grunt) ->
             'jquery/dist/cdn/jquery-<%= pkg.devDependencies.jquery.slice(1) %>.min.js'
         options:
           destPrefix: '<%= config.app %>/js/vendor'
+    # coffeelint: enable=max_line_length
     sass:
       build:
         files:
