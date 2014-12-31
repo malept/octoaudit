@@ -159,7 +159,7 @@ module.exports = (grunt) ->
       libs:
         files:
           'jquery.min.js':
-            'jquery/dist/cdn/jquery-<%= pkg.devDependencies.jquery.slice(1) %>.min.js'
+            'jquery/dist/cdn/jquery-<%= pkg.devDependencies.jquery %>.min.js'
         options:
           destPrefix: '<%= config.app %>/js/vendor'
     # coffeelint: enable=max_line_length
