@@ -5,6 +5,7 @@ sudo: false
 cache:
   directories:
   - node_modules
+  - amov_venv
 install:
 - npm install -g grunt-cli
 - npm install
