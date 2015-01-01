@@ -10,4 +10,4 @@ else
     cd "$BASE_DIR"/amo-validator
 fi
 
-./addon-validator --determined ../../dist/xpi/octoaudit.xpi
+./addon-validator --determined --verbose ../../dist/xpi/octoaudit.xpi
