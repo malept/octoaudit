@@ -14,6 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 $ ->
   return unless $('body').is('.logged_in')
+  return if $('.js-comment.comment:first .js-comment-edit-button').length == 0
   create_add_issue_button = ->
     $('<button/>')
       .text('add as task')
