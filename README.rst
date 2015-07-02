@@ -60,7 +60,8 @@ Building the extensions
 Dependencies
 ~~~~~~~~~~~~
 
-* Node.js/NPM
+* Node.js/io.js (tested with Node 0.10/0.12 and the latest stable io.js)
+* NPM
 * Grunt_
 
 .. _Grunt: http://gruntjs.com/
