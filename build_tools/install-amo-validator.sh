@@ -6,7 +6,7 @@ VENV_DIR=amov_venv
 cd "$BASE_DIR"
 
 if [[ -n "$INSTALL_VIRTUALENV" ]]; then
-    VENV_VERSION=1.11.6
+    VENV_VERSION=13.1.0
     VENV_NAME=virtualenv-$VENV_VERSION
     VENV_TGZ=${VENV_NAME}.tar.gz
     if [[ ! -d "$VENV_DIR" ]] || [[ ! -d "$VENV_DIR/bin" ]]; then
