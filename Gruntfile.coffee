@@ -131,17 +131,25 @@ module.exports = (grunt) ->
           noProcess: ['<%= config.app %>/img/octoaudit-{48,64}.png']
     crx:
       octoaudit:
-        src: "<%= config.build %>/octoaudit"
-        exclude: ['**/.gitkeep', '**/mozilla-addon*']
+        src: [
+          "<%= config.build %>/octoaudit/**/*"
+          '!**/.gitkeep'
+          '!**/mozilla-addon*'
+        ]
         dest: "<%= config.dist %>/crx/"
-        filename: "octoaudit-<%= pkg.version %>.crx"
-        privateKey: "~/.ssh/chrome-apps.pem"
+        options:
+          filename: "octoaudit-<%= pkg.version %>.crx"
+          privateKey: "~/.ssh/chrome-apps.pem"
       octoaudit_enterprise:
-        src: "<%= config.build %>/octoaudit_enterprise"
-        exclude: ['**/.gitkeep', '**/mozilla-addon*']
+        src: [
+          "<%= config.build %>/octoaudit_enterprise/**/*"
+          '**/.gitkeep'
+          '**/mozilla-addon*'
+        ]
         dest: "<%= config.dist %>/crx/"
-        filename: "octoaudit_enterprise-<%= pkg.version %>.crx"
-        privateKey: "~/.ssh/chrome-apps.pem"
+        options:
+          filename: "octoaudit_enterprise-<%= pkg.version %>.crx"
+          privateKey: "~/.ssh/chrome-apps.pem"
     "mozilla-addon-sdk":
       '1_17':
         options:
