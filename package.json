@@ -28,7 +28,7 @@
     "grunt-mozilla-addon-sdk": "^0.4.0",
     "grunt-npmcopy": "^0.1.0",
     "grunt-phantom-svg2png": "^1.0.2",
-    "grunt-sass": "^0.14.0",
+    "grunt-sass": "^1.0.0",
     "grunt-template": "^0.2.3",
     "jquery": "2.1.1",
     "load-grunt-tasks": "^0.6.0"
