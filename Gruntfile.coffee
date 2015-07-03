@@ -137,9 +137,11 @@ module.exports = (grunt) ->
           '!**/mozilla-addon*'
         ]
         dest: "<%= config.dist %>/crx/"
+        zipDest: "<%= config.dist %>/crx/"
         options:
           filename: "octoaudit-<%= pkg.version %>.crx"
           privateKey: "~/.ssh/chrome-apps.pem"
+          zipFilename: "octoaudit-<%= pkg.version %>.zip"
       octoaudit_enterprise:
         src: [
           "<%= config.build %>/octoaudit_enterprise/**/*"
@@ -147,9 +149,11 @@ module.exports = (grunt) ->
           '**/mozilla-addon*'
         ]
         dest: "<%= config.dist %>/crx/"
+        zipDest: "<%= config.dist %>/crx/"
         options:
           filename: "octoaudit_enterprise-<%= pkg.version %>.crx"
           privateKey: "~/.ssh/chrome-apps.pem"
+          zipFilename: "octoaudit_enterprise-<%= pkg.version %>.zip"
     "mozilla-addon-sdk":
       '1_17':
         options:
