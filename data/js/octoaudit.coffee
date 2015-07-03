@@ -26,8 +26,13 @@ $ ->
         desc_txt = $desc_textarea.text()
         unless /^## TODO$/m.test(desc_txt)
           desc_txt += '\n## TODO'
-        item_text = $comment.find('.comment-body').text()
-                            .trim().replace(/\s+/gm, ' ')
+
+        item_text = $comment.find('.js-comment-update textarea').val()
+        if item_text is undefined
+          item_text = $comment.find('.comment-body').text()
+                              .replace(/Nothing to preview\s+$/m, '')
+        item_text = item_text.trim().replace(/\s+/gm, ' ')
+
         desc_txt += "\n* [ ] #{item_text} *([ref](##{$comment.attr('id')}))*"
         doc = button.ownerDocument
         click_evt = doc.createEvent("MouseEvents")
