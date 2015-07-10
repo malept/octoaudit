@@ -14,36 +14,46 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 $ ->
   return unless $('body').is('.logged-in')
-  return if $('.js-comment.comment:first .js-comment-edit-button').length == 0
-  create_add_issue_button = ->
+
+  $desc = $('.timeline-comment:first')
+
+  $desc_edit_button = $desc.find('.js-comment-edit-button')
+  return if $desc_edit_button.length == 0
+
+  $desc_textarea = $desc.find('textarea')
+  return if $desc_textarea.length == 0
+
+  task_text = ($comment) ->
+    text = $comment.find('.js-comment-update textarea').val()
+    if text is undefined
+      text = $comment
+        .find('.comment-body')
+        .text()
+        .replace(/Nothing to preview\s+$/m, '')
+    text.trim().replace(/\s+/gm, ' ')
+
+  simulate_edit_click = (button) ->
+    doc = button.ownerDocument
+    click_evt = doc.createEvent('MouseEvents')
+    click_evt.initMouseEvent('click', true, true, doc.defaultView, 0, 0,
+                             0, 0, 0, false, false, false, false, 0, null)
+    $desc_edit_button.get(0).dispatchEvent(click_evt)
+
+  update_description_text = (button, $comment) ->
+    desc_txt = $desc_textarea.text()
+    unless /^## TODO$/m.test(desc_txt)
+      desc_txt += '\n## TODO'
+    comment_id = $comment.attr('id')
+    desc_txt += "\n* [ ] #{task_text($comment)} *([ref](##{comment_id}))*"
+
+    simulate_edit_click(button)
+    $desc_textarea.text(desc_txt)
+
+  $('.js-comment.comment:not(:first) .timeline-comment-actions').prepend ->
     $('<button/>')
       .text('add as task')
       .addClass('add-to-octoreviewer')
       .click (event) ->
         button = event.target
-        $button = $(button)
-        $comment = $button.closest('.comment')
-        desc_txt = $desc_textarea.text()
-        unless /^## TODO$/m.test(desc_txt)
-          desc_txt += '\n## TODO'
-
-        item_text = $comment.find('.js-comment-update textarea').val()
-        if item_text is undefined
-          item_text = $comment.find('.comment-body').text()
-                              .replace(/Nothing to preview\s+$/m, '')
-        item_text = item_text.trim().replace(/\s+/gm, ' ')
-
-        desc_txt += "\n* [ ] #{item_text} *([ref](##{$comment.attr('id')}))*"
-        doc = button.ownerDocument
-        click_evt = doc.createEvent("MouseEvents")
-        click_evt.initMouseEvent('click', true, true, doc.defaultView, 0, 0,
-                                 0, 0, 0, false, false, false, false, 0, null)
-        $desc.find('.js-comment-edit-button').get(0).dispatchEvent(click_evt)
-        $desc_textarea.text(desc_txt)
-
-  $desc = $('.timeline-comment:first')
-  $desc_textarea = $desc.find('textarea')
-  return if $desc_textarea.length == 0
-
-  $('.js-comment.comment:not(:first) .timeline-comment-actions')
-    .prepend(create_add_issue_button())
+        $comment = $(button).closest('.comment')
+        update_description_text(button, $comment)
