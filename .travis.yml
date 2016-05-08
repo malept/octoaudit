@@ -12,7 +12,7 @@ install:
 - npm install -g grunt-cli
 - npm install
 - build_tools/install-amo-validator.sh
-- (mkdir build_tools/spidermonkey && cd build_tools/spidermonkey && wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/jsshell-linux-x86_64.zip && unzip jsshell-linux-x86_64.zip && ln -sf `pwd`/js ../amov_venv/bin/)
+- (mkdir build_tools/spidermonkey && cd build_tools/spidermonkey && wget https://archive.mozilla.org/pub/firefox/nightly/latest-mozilla-central/jsshell-linux-x86_64.zip && unzip jsshell-linux-x86_64.zip && ln -sf `pwd`/js ../amov_venv/bin/)
 before_script:
 - $(npm bin)/crx keygen .
 - mv key.pem ~/.ssh/chrome-apps.pem
