@@ -171,7 +171,7 @@ module.exports = (grunt) ->
       libs:
         files:
           'jquery.min.js':
-            'jquery/dist/cdn/jquery-<%= pkg.devDependencies.jquery %>.min.js'
+            'jquery/dist/jquery.min.js'
         options:
           destPrefix: '<%= config.app %>/js/vendor'
     # coffeelint: enable=max_line_length
@@ -188,7 +188,13 @@ module.exports = (grunt) ->
           src: '<%= config.app %>/img/octoaudit.svg'
         }]
         options:
-          widths: [16, 48, 64, 128, 256]
+          sizes: [
+            {width: 16, name: 'octoaudit-16.png'}
+            {width: 48, name: 'octoaudit-48.png'}
+            {width: 64, name: 'octoaudit-64.png'}
+            {width: 128, name: 'octoaudit-128.png'}
+            {width: 256, name: 'octoaudit-256.png'}
+          ]
     template:
       octoaudit:
         files:
