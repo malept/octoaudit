@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-- '0.10'
-- '0.12'
-- 'iojs'
+- '4'
+- '5'
+- '6'
 sudo: false
 cache:
   directories:
@@ -14,7 +14,7 @@ install:
 - build_tools/install-amo-validator.sh
 - (mkdir build_tools/spidermonkey && cd build_tools/spidermonkey && wget http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/jsshell-linux-x86_64.zip && unzip jsshell-linux-x86_64.zip && ln -sf `pwd`/js ../amov_venv/bin/)
 before_script:
-- node_modules/.bin/crx keygen .
+- $(npm bin)/crx keygen .
 - mv key.pem ~/.ssh/chrome-apps.pem
 script:
 - grunt
