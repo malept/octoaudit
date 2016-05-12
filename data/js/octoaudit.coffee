@@ -1,4 +1,4 @@
-###! Copyright (C) 2014, 2015 Mark Lee under the GPLv3+ ###
+###! Copyright (C) 2014-2016 Mark Lee under the GPLv3+ ###
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 $ ->
-  return unless $('body').is('.logged_in')
+  return unless $('body').is('.logged-in')
   return if $('.js-comment.comment:first .js-comment-edit-button').length == 0
   create_add_issue_button = ->
     $('<button/>')
@@ -45,5 +45,5 @@ $ ->
   $desc_textarea = $desc.find('textarea')
   return if $desc_textarea.length == 0
 
-  $('.js-comment.comment:not(:first) .timeline-comment-header-text')
-    .before(create_add_issue_button())
+  $('.js-comment.comment:not(:first) .timeline-comment-actions')
+    .prepend(create_add_issue_button())
