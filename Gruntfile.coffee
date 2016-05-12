@@ -1,4 +1,4 @@
-###! Copyright (C) 2014 Mark Lee under the GPLv3+ ###
+###! Copyright (C) 2014-2016 Mark Lee under the GPLv3+ ###
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -154,18 +154,10 @@ module.exports = (grunt) ->
           filename: "octoaudit_enterprise-<%= pkg.version %>.crx"
           privateKey: "~/.ssh/chrome-apps.pem"
           zipFilename: "octoaudit_enterprise-<%= pkg.version %>.zip"
-    "mozilla-addon-sdk":
-      '1_17':
-        options:
-          revision: "1.17"
-          dest_dir: "<%= config.build_tools %>/"
-    "mozilla-cfx-xpi":
-      xpi:
-        options:
-          "arguments": "--strip-sdk" # builds smaller xpis
-          dist_dir: "<%= config.dist %>/xpi"
-          extension_dir: "<%= config.build %>/firefox"
-          "mozilla-addon-sdk": "1_17"
+    jpm:
+      options:
+        src: '<%= config.build %>/firefox'
+        xpi: '<%= config.dist %>/xpi'
     # coffeelint: disable=max_line_length
     npmcopy:
       libs:
@@ -239,7 +231,6 @@ module.exports = (grunt) ->
     'rasterize'
     'copy'
     'template'
-    'mozilla-addon-sdk'
-    'mozilla-cfx-xpi'
+    'jpm:xpi'
     'crx'
   ])
