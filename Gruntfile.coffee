@@ -21,7 +21,6 @@ module.exports = (grunt) ->
   config =
     app: 'data'
     build: 'build'
-    build_tools: 'build_tools'
     dist: 'dist'
 
   grunt.initConfig
@@ -37,9 +36,6 @@ module.exports = (grunt) ->
           '<%= config.app %>/js/vendor/*.js'
           '<%= config.build %>'
         ]
-      build_tools: [
-        '<%= config.build_tools %>'
-      ]
       crx:
         src: ['<%= config.dist %>/crx/*.crx']
       images:
