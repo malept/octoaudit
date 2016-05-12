@@ -60,7 +60,7 @@ Building the extensions
 Dependencies
 ~~~~~~~~~~~~
 
-* Node.js (tested with Node 4, 5, and 6)
+* Node.js (tested with Node 4 & 5. Does not work with Node 6)
 * NPM
 * Grunt_
 
