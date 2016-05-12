@@ -60,7 +60,7 @@ Building the extensions
 Dependencies
 ~~~~~~~~~~~~
 
-* Node.js/io.js (tested with Node 0.10/0.12 and the latest stable io.js)
+* Node.js (tested with Node 4, 5, and 6)
 * NPM
 * Grunt_
 
@@ -86,7 +86,7 @@ Instructions
 
 .. code-block:: shell-session
 
-    user@host:octoaudit$ node_modules/.bin/crx keygen .
+    user@host:octoaudit$ $(npm bin)/crx keygen .
     user@host:octoaudit$ mv key.pem ~/.ssh/chrome-apps.pem
 
 4. Build the extensions:
