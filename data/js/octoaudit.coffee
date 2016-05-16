@@ -49,11 +49,18 @@ $ ->
     simulate_edit_click(button)
     $desc_textarea.text(desc_txt)
 
-  $('.js-comment.comment:not(:first) .timeline-comment-actions').prepend ->
-    $('<button/>')
-      .text('add as task')
-      .addClass('add-to-octoreviewer')
-      .click (event) ->
-        button = event.target
-        $comment = $(button).closest('.comment')
-        update_description_text(button, $comment)
+  clone_octicon = (name) ->
+    $("svg.octicon-#{name}:first").clone()
+
+  button = $('<button/>')
+    .attr(type: 'button', 'aria-label': 'Add as task')
+    .addClass('octoaudit-add-task timeline-comment-action')
+    .addClass('tooltipped tooltipped-n')
+    .append(clone_octicon('plus'))
+    .append(clone_octicon('tasklist'))
+    .click (event) ->
+      button = event.target
+      $comment = $(button).closest('.comment')
+      update_description_text(button, $comment)
+
+  $('.js-comment.comment:not(:first) .timeline-comment-actions').prepend(button)
