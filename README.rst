@@ -30,12 +30,13 @@ There are two methods of installation:
 1. Install from your browser's extension website:
 
    * Firefox_
-   * Chrome_ (currently only the GitHub extension has been published, not the
-     GitHub Enterprise one)
+   * Chrome_ (there are two extensions to choose from, one for GitHub and the other for
+     `GitHub Enterprise`_)
 2. `Build from source`_
 
 .. _Firefox: https://addons.mozilla.org/en-US/firefox/addon/octoaudit
 .. _Chrome: https://chrome.google.com/webstore/detail/octoaudit/mhjlfnkgphdkfkejplmjlofdhgpeenfg
+.. _GitHub Enterprise: https://chrome.google.com/webstore/detail/octoaudit-enterprise/deaeojdfmbcohmdjkfiokldjopfbcnpc
 .. _Build from source: #building-the-extensions
 
 Usage
