@@ -48,6 +48,7 @@ $ ->
 
     simulate_edit_click(button)
     $desc_textarea.text(desc_txt)
+    $desc_textarea.val(desc_txt)
 
   clone_octicon = (name) ->
     $("svg.octicon-#{name}:first").clone()
