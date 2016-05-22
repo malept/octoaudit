@@ -24,8 +24,7 @@ When filing a bug, please include the following information:
 * Any other extensions/user scripts that may affect the GitHub website.
 * A detailed list of steps to reproduce the bug.
 * If the bug is UI related, a screenshot will be helpful.
-* If the bug is build related, which JavaScript runtime (Node/io.js)
-  and its version.
+* If the bug is build related, which Node.js version is being used.
 
 Pull Requests
 -------------
